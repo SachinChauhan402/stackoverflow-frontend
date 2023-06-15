@@ -36,7 +36,11 @@ const MainQuestion = () => {
         },
       };
       await axios
-        .post("/api/answer", body, config)
+        .post(
+          "https://stackoverflow-crnr.onrender.com/api/answer",
+          body,
+          config
+        )
         .then((res) => {
           console.log(res.data);
           alert("Answer added successfully");
