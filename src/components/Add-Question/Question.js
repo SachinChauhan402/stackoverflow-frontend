@@ -36,7 +36,7 @@ const Question = () => {
         user: user,
       };
       await axios
-        .post("https://stackoverflow-crnr.onrender.com/api/question", bodyJSON)
+        .post("/api/question", bodyJSON)
         .then((res) => {
           alert("Question added successfully");
           setLoading(false);
