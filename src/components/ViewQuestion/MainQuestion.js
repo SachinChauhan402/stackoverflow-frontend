@@ -37,7 +37,7 @@ const MainQuestion = () => {
       };
       await axios
         .post(
-          "https://ornate-capybara-12094e.netlify.app/api/answer",
+          "https://stackoverflow-crnr.onrender.com/api/answer",
           body,
           config
         )
@@ -62,12 +62,14 @@ const MainQuestion = () => {
         comment: comment,
         user: user,
       };
-      await axios.post(`/api/comment/${id}`, body).then((res) => {
-        console.log(res.data);
-        setComment("");
-        setShow(false);
-        getUpdatedAnswer();
-      });
+      await axios
+        .post(`https://stackoverflow-crnr.onrender.com/api/comment/${id}`, body)
+        .then((res) => {
+          console.log(res.data);
+          setComment("");
+          setShow(false);
+          getUpdatedAnswer();
+        });
     }
   };
 
@@ -78,7 +80,7 @@ const MainQuestion = () => {
   useEffect(() => {
     async function getQuestionDetails() {
       await axios
-        .get(`/api/question/${id}`)
+        .get(`https://stackoverflow-crnr.onrender.com/api/question/${id}`)
         .then((res) => {
           console.log(res.data[0]);
           setQuestionData(res.data[0]);
@@ -92,7 +94,9 @@ const MainQuestion = () => {
 
   async function getUpdatedAnswer() {
     await axios
-      .get(`/api/question/${id}`)
+      .get(
+        `https://stackoverflow-crnr.onrender.com/api/question/api/question/${id}`
+      )
       .then((res) => {
         console.log(res.data[0]);
         setQuestionData(res.data[0]);

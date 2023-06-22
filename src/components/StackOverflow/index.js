@@ -10,7 +10,7 @@ const Index = () => {
   useEffect(() => {
     async function getQuestion() {
       await axios
-        .get("https://ornate-capybara-12094e.netlify.app/api/question")
+        .get("https://stackoverflow-crnr.onrender.com/api/question")
         .then((res) => {
           console.log(res.data);
           setQuestions(res.data.reverse());
