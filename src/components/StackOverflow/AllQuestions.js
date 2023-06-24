@@ -6,7 +6,7 @@ import ReactHtmlParser from "react-html-parser";
 
 const AllQuestions = ({ question }) => {
   console.log(question?.tags[0]);
-  const tags = JSON.parse(question?.tags[0]);
+  const tags = question?.tags[0] ? JSON.parse(question?.tags[0]) : [];
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }

@@ -7,7 +7,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./index.css";
 import axios from "axios";
-import ReactHtmlPareser from "react-html-parser";
+import ReactHtmlParser from "react-html-parser";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../features/userSlice";
 
@@ -94,9 +94,7 @@ const MainQuestion = () => {
 
   async function getUpdatedAnswer() {
     await axios
-      .get(
-        `https://stackoverflow-crnr.onrender.com/api/question/api/question/${id}`
-      )
+      .get(`https://stackoverflow-crnr.onrender.com/api/question/${id}`)
       .then((res) => {
         console.log(res.data[0]);
         setQuestionData(res.data[0]);
@@ -138,7 +136,7 @@ const MainQuestion = () => {
               </div>
             </div>
             <div className="question-answer">
-              <p>{ReactHtmlPareser(questionData?.body)}</p>
+              <p>{ReactHtmlParser(questionData?.body)}</p>
               <div className="author">
                 <small>
                   asked {new Date(questionData?.created_at).toLocaleString()}
@@ -226,7 +224,7 @@ const MainQuestion = () => {
                   </div>
                 </div>
                 <div className="question-answer">
-                  <p>{ReactHtmlPareser(_q?.answer)}</p>
+                  <p>{ReactHtmlParser(_q?.answer)}</p>
                   <div className="author">
                     <small>
                       asked {new Date(_q?.created_at).toLocaleString()}
