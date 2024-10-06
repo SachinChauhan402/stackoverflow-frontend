@@ -37,7 +37,7 @@ const MainQuestion = () => {
       };
       await axios
         .post(
-          "https://stackoverflow-crnr.onrender.com/api/answer",
+          "https://sobackend.onrender.com/api/answer",
           body,
           config
         )
@@ -63,7 +63,7 @@ const MainQuestion = () => {
         user: user,
       };
       await axios
-        .post(`https://stackoverflow-crnr.onrender.com/api/comment/${id}`, body)
+        .post(`https://sobackend.onrender.com/api/comment/${id}`, body)
         .then((res) => {
           console.log(res.data);
           setComment("");
@@ -80,7 +80,7 @@ const MainQuestion = () => {
   useEffect(() => {
     async function getQuestionDetails() {
       await axios
-        .get(`https://stackoverflow-crnr.onrender.com/api/question/${id}`)
+        .get(`https://sobackend.onrender.com/api/question/${id}`)
         .then((res) => {
           console.log(res.data[0]);
           setQuestionData(res.data[0]);
@@ -94,7 +94,7 @@ const MainQuestion = () => {
 
   async function getUpdatedAnswer() {
     await axios
-      .get(`https://stackoverflow-crnr.onrender.com/api/question/${id}`)
+      .get(`https://sobackend.onrender.com/api/question/${id}`)
       .then((res) => {
         console.log(res.data[0]);
         setQuestionData(res.data[0]);
