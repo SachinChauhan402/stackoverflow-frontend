@@ -10,7 +10,7 @@ const Index = () => {
   useEffect(() => {
     async function getQuestion() {
       await axios
-        .get("https://stackoverflow-crnr.onrender.com/api/question")
+        .get("https://sobackend.onrender.com/api/question")
         .then((res) => {
           console.log(res.data);
           setQuestions(res.data.reverse());
